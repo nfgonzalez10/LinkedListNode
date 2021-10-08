@@ -5,26 +5,28 @@ import './style.css';
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.innerHTML = `<h1>TypeScript Starter</h1>`;
 
-class LinkedListNode{
+class LinkedListNode {
   data;
   next;
-  constructor(data, nextNode?){
+  constructor(data, nextNode?) {
     this.data = data;
     this.next = nextNode;
   }
 }
 
-var first = new LinkedListNode("a", new LinkedListNode("b", new LinkedListNode("c")))
+const first = new LinkedListNode(
+  'a',
+  new LinkedListNode('b', new LinkedListNode('c'))
+);
 
-function insertNodeAfterData(first,newvalue, insertAfter){
-  if(!first?.data) return
-  if(first.data === insertAfter){
-    first.next = new LinkedListNode(newvalue,first.next)
+function insertNodeAfterData(first, newvalue, insertAfter) {
+  if (!first?.data) return;
+  if (first.data === insertAfter) {
+    first.next = new LinkedListNode(newvalue, first.next);
   } else {
-    insertNodeAfterData(first.next, newvalue,insertAfter)
+    insertNodeAfterData(first.next, newvalue, insertAfter);
   }
- 
 }
 
-insertNodeAfterData(first, "f", "b")
-console.log(first)
+insertNodeAfterData(first, 'f', 'b');
+console.log(first);
